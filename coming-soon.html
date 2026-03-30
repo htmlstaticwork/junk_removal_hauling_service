@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | EcoJunk Hauling</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <style>
+        .coming-soon-section {
+            min-height: calc(100vh - 80px - 400px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .countdown-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            min-width: 100px;
+        }
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: block;
+        }
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--secondary-grey);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Header -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.svg" alt="EcoJunk Logo" class="site-logo">
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item d-none d-xl-block dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Home</a>
+                        <ul class="dropdown-menu border-0 shadow-sm">
+                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-xl-none"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item d-xl-none"><a class="nav-link" href="home2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eco-commitment.html">Eco</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="dashboard.html" id="dashboard-link" title="Customer Dashboard"><i class="bi bi-speedometer2"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="#" id="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-stars"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="#" id="rtl-toggle" title="Toggle RTL Support"><i class="bi bi-translate"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="login.html" title="User Login"><i class="bi bi-person-circle"></i></a></li>
+                    <li class="nav-item"><a class="btn btn-success ms-lg-3" href="book-pickup.html">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Coming Soon Content -->
+    <main class="coming-soon-section">
+        <div class="container">
+            <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-4 fw-bold">UNDER CONSTRUCTION</span>
+            <h1 class="display-3 fw-bold mb-3">Something <span class="text-primary-green">Eco-Friendly</span> is Coming</h1>
+            <p class="lead text-muted mb-5 mx-auto" style="max-width: 600px;">We're currently polishing our new feature to ensure the most seamless recycling experience for you. Stay tuned!</p>
+            
+            <div class="d-flex justify-content-center gap-3 mb-5">
+                <div class="countdown-item">
+                    <span class="countdown-number">12</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number">08</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number">45</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow mx-auto" style="max-width: 500px; border-radius: 20px;">
+                <div class="card-body p-4 p-md-5">
+                    <h5 class="fw-bold mb-3">Get Notified When We Launch</h5>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control py-3 px-4" placeholder="your@email.com" style="border-radius: 12px 0 0 12px;">
+                        <button class="btn btn-success px-4" type="button" style="border-radius: 0 12px 12px 0;">Notify Me</button>
+                    </div>
+                    <p class="small text-muted mb-0">We promise no spam, just eco-updates.</p>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <a href="index.html" class="text-secondary-grey text-decoration-none fw-bold"><i class="bi bi-arrow-left me-2"></i>Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a href="index.html" class="d-inline-block">
+                        <img src="assets/logo.svg" alt="EcoJunk Logo" class="site-logo">
+                    </a>
+                    <p>The leading eco-friendly junk removal and hauling service in the tri-state area. We're committed
+                        to a cleaner, greener future.</p>
+                    <div class="d-flex gap-3 fs-4 mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html#residential">Residential</a></li>
+                        <li><a href="services.html#commercial">Commercial</a></li>
+                        <li><a href="services.html#construction">Construction</a></li>
+                        <li><a href="services.html#recycling">Recycling</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-4">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="eco-commitment.html">Sustainability</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p class="small">Get eco-tips and exclusive discounts.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-success" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="text-center small copyright-text">
+                &copy; 2026 EcoJunk Hauling Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a
+                    href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

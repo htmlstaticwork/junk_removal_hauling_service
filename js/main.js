@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initThemeToggle();
     initNavbarActiveState();
+    initScrollToTop();
+    initDashboardToggle();
 });
 
 // --- Instant Quote Calculator ---
@@ -172,7 +174,8 @@ function initThemeToggle() {
         document.body.classList.add('dark-mode');
     }
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', (e) => {
+        if(e) e.preventDefault();
         document.body.classList.toggle('dark-mode');
         const isDark = document.body.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -202,28 +205,93 @@ function initNavbarActiveState() {
     const currentPath = window.location.pathname;
     const filename = currentPath.split('/').pop() || 'index.html';
     
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Reset all active classes
+    document.querySelectorAll('.nav-link, .dropdown-item').forEach(el => el.classList.remove('active'));
+
+    const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
+        
+        // Exact match or Home 1 match
         if (href === filename || (filename === 'index.html' && href === '#')) {
             link.classList.add('active');
             
-            // If it's a dropdown item, also highlight the parent dropdown toggle
+            // If it's a dropdown item, highlight its parent toggle
             if (link.classList.contains('dropdown-item')) {
-                const parentToggle = link.closest('.dropdown')?.querySelector('.dropdown-toggle');
-                if (parentToggle) parentToggle.classList.add('active');
+                const parentDropdown = link.closest('.dropdown');
+                if (parentDropdown) {
+                    const toggle = parentDropdown.querySelector('.dropdown-toggle');
+                    if (toggle) toggle.classList.add('active');
+                }
             }
-        } else {
-            // Remove active class from others (just in case)
-            link.classList.remove('active');
         }
     });
 
-    // Handle home2 specifically if needed, since it's also a "Home"
-    if (filename === 'home2.html') {
-        const homeToggle = Array.from(document.querySelectorAll('.dropdown-toggle')).find(el => el.textContent.trim() === 'Home');
-        if (homeToggle) homeToggle.classList.add('active');
+    initNavIcons();
+}
+
+function initNavIcons() {
+    const rtlBtn = document.getElementById('rtl-toggle');
+    if (rtlBtn) {
+        rtlBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const html = document.documentElement;
+            const isRtl = html.getAttribute('dir') === 'rtl';
+            html.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
+            rtlBtn.querySelector('i').classList.toggle('bi-translate');
+            rtlBtn.querySelector('i').classList.toggle('bi-arrow-left-right');
+        });
     }
+
+    const dashboardBtn = document.getElementById('dashboard-link');
+    if (dashboardBtn) {
+        dashboardBtn.addEventListener('click', (e) => {
+            // Simulation: Normally would just follow the link
+            console.log('Navigating to Customer Dashboard...');
+        });
+    }
+}
+
+// --- Dashboard Sidebar Toggle ---
+function initDashboardToggle() {
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('show');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992 && 
+                sidebar.classList.contains('show') &&
+                !sidebar.contains(e.target) && 
+                !toggleBtn.contains(e.target)) {
+                sidebar.classList.remove('show');
+            }
+        });
+    }
+}
+
+// --- Scroll to Top ---
+function initScrollToTop() {
+    const scrollBtn = document.getElementById('scroll-to-top');
+    if (!scrollBtn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+
+    scrollBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
 
 // Helper: Animate number change

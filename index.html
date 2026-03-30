@@ -15,29 +15,31 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
 
 <body>
 
-    <!-- Sticky Header -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <!-- Fixed Header -->
+    <nav class="navbar navbar-expand-xl fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/logo.png" alt="EcoJunk Logo" height="60">
+                <img src="assets/logo.svg" alt="EcoJunk Logo" class="site-logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item d-none d-xl-block dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Home</a>
                         <ul class="dropdown-menu border-0 shadow-sm">
                             <li><a class="dropdown-item" href="index.html">Home 1</a></li>
                             <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item d-xl-none"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item d-xl-none"><a class="nav-link" href="home2.html">Home 2</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="services.html">Services</a>
@@ -48,11 +50,11 @@
                     <li class="nav-item"><a class="nav-link" href="eco-commitment.html">Eco</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><button class="btn btn-outline-success ms-lg-3" id="theme-toggle"><i
-                                class="bi bi-moon-stars"></i></button></li>
-                    <li class="nav-item"><a class="btn btn-success ms-lg-2" href="book-pickup.html">Book Now</a></li>
-                    <li class="nav-item ms-lg-3"><a class="nav-link fw-bold text-dark" href="login.html"><i
-                                class="bi bi-person-circle fs-5"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="dashboard.html" id="dashboard-link" title="Customer Dashboard"><i class="bi bi-speedometer2"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="#" id="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-stars"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="#" id="rtl-toggle" title="Toggle RTL Support"><i class="bi bi-translate"></i></a></li>
+                    <li class="nav-item"><a class="nav-icon-link ms-lg-3" href="login.html" title="User Login"><i class="bi bi-person-circle"></i></a></li>
+                    <li class="nav-item"><a class="btn btn-success ms-lg-3" href="book-pickup.html">Book Now</a></li>
                 </ul>
             </div>
         </div>
@@ -62,16 +64,16 @@
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
                     <h1 class="display-3 fw-bold mb-3">Eco-Friendly Junk Removal <span class="text-primary-green">Made
                             Easy</span></h1>
                     <p class="lead mb-4 text-muted">We remove your unwanted items quickly and responsibly. Our
                         donation-first approach keeps junk out of landfills.</p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
                         <a href="book-pickup.html" class="btn btn-success">Book Pickup Now</a>
                         <a href="#how-it-works" class="btn btn-outline-success">How It Works</a>
                     </div>
-                    <div class="mt-5 d-flex align-items-center gap-4">
+                    <div class="mt-5 d-flex align-items-center justify-content-center justify-content-lg-start gap-4">
                         <div class="d-flex align-items-center">
                             <i class="bi bi-star-fill text-warning me-1"></i>
                             <i class="bi bi-star-fill text-warning me-1"></i>
@@ -117,10 +119,10 @@
                         <div class="process-img-wrapper">
                             <img src="assets/service_residential.png" alt="Residential Service" class="process-img">
                         </div>
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column text-center text-md-start">
                             <h3 class="fw-bold">Residential</h3>
                             <p class="text-muted">Furniture removal, appliance hauling, and garage cleanouts for your home environment.</p>
-                            <a href="services.html#residential" class="mt-auto text-primary-green fw-bold text-decoration-none d-inline-block">Learn More <i class="bi bi-arrow-right"></i></a>
+                            <a href="services.html#residential" class="mt-auto text-primary-green fw-bold text-decoration-none d-inline-block service-learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -129,10 +131,10 @@
                         <div class="process-img-wrapper">
                             <img src="assets/service_commercial.png" alt="Commercial Service" class="process-img">
                         </div>
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column text-center text-md-start">
                             <h3 class="fw-bold">Commercial</h3>
                             <p class="text-muted">Office furniture liquidation, E-waste recycling, and large-scale asset removal.</p>
-                            <a href="services.html#commercial" class="mt-auto text-primary-green fw-bold text-decoration-none d-inline-block">Learn More <i class="bi bi-arrow-right"></i></a>
+                            <a href="services.html#commercial" class="mt-auto text-primary-green fw-bold text-decoration-none d-inline-block service-learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -141,10 +143,10 @@
                         <div class="process-img-wrapper">
                             <img src="assets/eco_collection.png" alt="Recycling Service" class="process-img">
                         </div>
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column text-center text-md-start">
                             <h3 class="fw-bold">Specialized Recycling</h3>
                             <p class="text-muted">Hazardous waste sorting, battery recycling, and coordinate donation with local charities.</p>
-                            <a href="services.html#recycling" class="mt-auto text-primary-green fw-bold text-decoration-none d-inline-block">Learn More <i class="bi bi-arrow-right"></i></a>
+                            <a href="services.html#recycling" class="mt-auto text-primary-green fw-bold text-decoration-none d-inline-block service-learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -159,45 +161,45 @@
                 <div class="col-lg-5">
                     <img src="assets/hero.png" alt="Professional Truck" class="img-fluid rounded-lg shadow-lg">
                 </div>
-                <div class="col-lg-6 offset-lg-1 py-5">
+                <div class="col-lg-6 offset-lg-1 py-5 text-center text-lg-start">
                     <h2 class="display-5 mb-4">How It Works</h2>
-                    <div class="d-flex mb-4">
+                    <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
                         <div class="flex-shrink-0">
                             <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">1</div>
                         </div>
-                        <div class="ms-3">
+                        <div class="ms-md-3 mt-3 mt-md-0 text-center text-md-start">
                             <h4>Book Online</h4>
                             <p class="text-muted">Select a date and time that fits your schedule. No hidden fees.</p>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
+                    <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
                         <div class="flex-shrink-0">
                             <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">2</div>
                         </div>
-                        <div class="ms-3">
+                        <div class="ms-md-3 mt-3 mt-md-0 text-center text-md-start">
                             <h4>We Arrive</h4>
                             <p class="text-muted">Our friendly team calls 15-30 minutes before arrival and provides a
                                 firm quote.</p>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
+                    <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
                         <div class="flex-shrink-0">
                             <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">3</div>
                         </div>
-                        <div class="ms-3">
+                        <div class="ms-md-3 mt-3 mt-md-0 text-center text-md-start">
                             <h4>Junk Removed</h4>
                             <p class="text-muted">Sit back and relax while we do all the heavy lifting and cleanup.</p>
                         </div>
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start">
                         <div class="flex-shrink-0">
                             <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">4</div>
                         </div>
-                        <div class="ms-3">
+                        <div class="ms-md-3 mt-3 mt-md-0 text-center text-md-start">
                             <h4>Recycle & Donate</h4>
                             <p class="text-muted">We sort your items. Over 80% are recycled or donated to local
                                 charities.</p>
@@ -215,7 +217,7 @@
                 <h2 class="display-5 fw-bold">Gallery of Transformation</h2>
                 <p class="text-muted">A glimpse into our recent eco-friendly junk removal projects.</p>
             </div>
-            <div class="row g-4 justify-content-center">
+            <div class="row g-4 justify-content-center text-center">
                 <div class="col-md-4">
                     <img src="assets/how_it_works_hero.png" alt="Recent Project 1" class="img-fluid rounded-lg shadow-sm shadowed mb-2">
                     <h6 class="fw-bold mt-2">Garage Reclaim, Jersey</h6>
@@ -237,7 +239,7 @@
         <div class="container py-4 text-center">
             <h2 class="display-5 fw-bold mb-4">Sustainability Partners</h2>
             <p class="text-muted mb-5">We collaborate with local charities and recycling centers to maximize junk diversion.</p>
-            <div class="row row-cols-2 row-cols-md-4 g-5 align-items-center opacity-50">
+            <div class="row row-cols-2 row-cols-md-4 g-3 g-md-5 align-items-center opacity-50 justify-content-center">
                 <div class="col"><h3 class="fw-bold">EcoRecycle</h3></div>
                 <div class="col"><h3 class="fw-bold">GreenWay</h3></div>
                 <div class="col"><h3 class="fw-bold">WasteFree</h3></div>
@@ -271,15 +273,17 @@
     <section class="py-5 bg-white">
         <div class="container py-4">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 text-center text-lg-start">
                     <h2 class="display-5 fw-bold mb-4">Coverage & Availability</h2>
                     <p class="lead text-muted mb-4">Serving the entire Tri-State area with prompt, professional, and planet-first junk removal services.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3 d-flex align-items-center"><i class="bi bi-geo-alt-fill text-primary-green me-3 fs-4"></i> New York Metro Area</li>
-                        <li class="mb-3 d-flex align-items-center"><i class="bi bi-geo-alt-fill text-primary-green me-3 fs-4"></i> North & Central Jersey</li>
-                        <li class="mb-3 d-flex align-items-center"><i class="bi bi-geo-alt-fill text-primary-green me-3 fs-4"></i> Westchester & Long Island</li>
+                    <ul class="list-unstyled d-inline-block text-start">
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-lg-start"><i class="bi bi-geo-alt-fill text-primary-green me-3 fs-4"></i> New York Metro Area</li>
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-lg-start"><i class="bi bi-geo-alt-fill text-primary-green me-3 fs-4"></i> North & Central Jersey</li>
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-lg-start"><i class="bi bi-geo-alt-fill text-primary-green me-3 fs-4"></i> Westchester & Long Island</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline-success btn-lg px-5 mt-3">Check Your Zip Code</a>
+                    <div class="mt-3">
+                        <a href="contact.html" class="btn btn-outline-success btn-lg px-5">Check Your Zip Code</a>
+                    </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
                     <div class="p-5 bg-light rounded-2xl shadow-sm text-center">
@@ -298,7 +302,9 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <div class="h3 mb-3 text-white">EcoJunk</div>
+                    <a href="index.html" class="d-inline-block">
+                        <img src="assets/logo.svg" alt="EcoJunk Logo" class="site-logo">
+                    </a>
                     <p>The leading eco-friendly junk removal and hauling service in the tri-state area. We're committed
                         to a cleaner, greener future.</p>
                     <div class="d-flex gap-3 fs-4 mt-4">
@@ -336,12 +342,12 @@
                 </div>
             </div>
             <hr class="my-5 opacity-10">
-            <div class="text-center small text-muted">
+            <div class="text-center small copyright-text">
                 &copy; 2026 EcoJunk Hauling Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a
                     href="#">Terms of Service</a>
             </div>
         </div>
-    </footer>
+    </footer><button id="scroll-to-top" class="btn btn-success rounded-circle shadow-lg"><i class="bi bi-arrow-up"></i></button>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

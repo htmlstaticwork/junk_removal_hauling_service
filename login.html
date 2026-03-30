@@ -8,48 +8,70 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <style>
-        body { background: #F9FAFB; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        body { background: #F9FAFB; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
         .auth-card { max-width: 450px; width: 100%; border: none; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         .auth-logo { height: 60px; margin-bottom: 20px; }
-        .btn-auth { width: 100%; padding: 12px; font-weight: 600; font-size: 1.1rem; }
-        .password-toggle { cursor: pointer; position: absolute; right: 15px; top: 12px; }
+        .btn-auth { width: 100%; padding: 12px; font-weight: 600; font-size: 1.1rem; border-radius: 12px; }
+        .password-toggle { cursor: pointer; position: absolute; right: 15px; top: 12px; z-index: 10; }
+        .auth-toggles { z-index: 1000; }
+        .social-btn { border: 1px solid #e0e0e0; border-radius: 12px; padding: 10px; font-weight: 500; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--secondary-grey); text-decoration: none; width: 100%; }
+        .social-btn:hover { background: #f8f9fa; border-color: var(--primary-green); color: var(--primary-green); }
+        .divider { display: flex; align-items: center; text-align: center; margin: 20px 0; color: #999; font-size: 0.9rem; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #eee; }
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
     </style>
 </head>
-<body>
+<body class="bg-light">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
+        <!-- Floating Toggles moved outside -->
+        <div class="auth-toggles d-flex justify-content-end gap-2 mb-3 w-100" style="max-width: 450px;">
+            <button class="btn btn-white shadow-sm rounded-circle" id="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-stars"></i></button>
+            <button class="btn btn-white shadow-sm rounded-circle" id="rtl-toggle" title="Toggle RTL"><i class="bi bi-translate"></i></button>
+        </div>
 
-    <div class="container d-flex justify-content-center">
         <div class="card auth-card p-4 p-md-5 bg-white">
             <div class="text-center mb-4">
-                <a href="index.html"><img src="assets/logo.png" alt="EcoJunk" class="auth-logo"></a>
+                <a href="index.html"><img src="assets/logo.svg" alt="EcoJunk" class="site-logo"></a>
                 <h2 class="fw-bold">Welcome Back</h2>
                 <p class="text-muted small">Access your dashboard and track your pickups.</p>
             </div>
             
-            <form action="dashboard.html">
-                <div class="mb-4">
+            <form action="dashboard.html" class="needs-validation" novalidate id="loginForm">
+                <div class="mb-3">
                     <label class="form-label small fw-bold">Email Address</label>
                     <input type="email" class="form-control" placeholder="name@example.com" required>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
                 </div>
-                <div class="mb-4 position-relative">
+                <div class="mb-3">
                     <label class="form-label small fw-bold">Password</label>
                     <div class="position-relative">
-                        <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                        <input type="password" class="form-control" id="password" placeholder="••••••••" required minlength="6">
                         <i class="bi bi-eye password-toggle text-muted" id="togglePassword"></i>
+                        <div class="invalid-feedback">Password must be at least 6 characters.</div>
                     </div>
-                    <div class="text-end mt-2">
-                        <a href="#" class="text-primary-green small text-decoration-none">Forgot Password?</a>
-                    </div>
-                </div>
-                <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="remember">
                         <label class="form-check-label small" for="remember">Keep me logged in</label>
                     </div>
+                    <a href="#" class="text-primary-green small text-decoration-none">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn btn-success btn-auth mb-3">Log In</button>
             </form>
+
+            <div class="divider">Or login with</div>
+            
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="#" class="social-btn"><i class="bi bi-google text-danger"></i> Google</a>
+                </div>
+                <div class="col-6">
+                    <a href="#" class="social-btn"><i class="bi bi-facebook text-primary"></i> Facebook</a>
+                </div>
+            </div>
             
             <div class="text-center mt-3">
                 <p class="small text-muted mb-0">Don't have an account? <a href="signup.html" class="text-primary-green fw-bold text-decoration-none">Sign Up</a></p>
@@ -57,7 +79,9 @@
         </div>
     </div>
 
+    <script src="js/main.js"></script>
     <script>
+        // Password Toggle
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
         if (togglePassword && password) {
@@ -68,6 +92,21 @@
                 this.classList.toggle('bi-eye-slash');
             });
         }
+
+        // Form Validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
     </script>
 </body>
 </html>

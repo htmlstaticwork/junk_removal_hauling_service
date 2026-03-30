@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | EcoJunk Hauling</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body>
+
+    <!-- Sticky Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.png" alt="EcoJunk Logo" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Home</a>
+                        <ul class="dropdown-menu border-0 shadow-sm">
+                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eco-commitment.html">Eco </a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><button class="btn btn-outline-success ms-lg-3" id="theme-toggle"><i
+                                class="bi bi-moon-stars"></i></button></li>
+                    <li class="nav-item"><a class="btn btn-success ms-lg-2" href="book-pickup.html">Book Now</a></li>
+                    <li class="nav-item ms-lg-3"><a class="nav-link fw-bold text-dark" href="login.html"><i
+                                class="bi bi-person-circle fs-5"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <header class="hero-contact text-center">
+        <div class="container py-4">
+            <h1 class="display-3 fw-bold mb-3">Get in Touch</h1>
+            <p class="lead">We're here to help. Reach out via phone, email, or our contact form.</p>
+        </div>
+    </header>
+
+    <!-- Contact Info & Form -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <!-- Contact Details -->
+                <div class="col-lg-5">
+                    <div class="p-5 bg-primary-green text-white rounded-lg h-100 shadow-lg">
+                        <h3 class="mb-5">Contact Details</h3>
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-geo-alt fs-2 me-4 text-accent-light"></i>
+                            <div>
+                                <h5 class="mb-1">Our Headquarters</h5>
+                                <p class="opacity-75">123 Green Way, Sustainability City, SC 12345</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-telephone fs-2 me-4 text-accent-light"></i>
+                            <div>
+                                <h5 class="mb-1">Phone Number</h5>
+                                <p class="opacity-75">(555) 123-4567 <br> Mon - Sun, 8am - 8pm</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-5">
+                            <i class="bi bi-envelope fs-2 me-4 text-accent-light"></i>
+                            <div>
+                                <h5 class="mb-1">Email Address</h5>
+                                <p class="opacity-75">hello@ecojunkhauling.com <br> info@ecojunkhauling.com</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto">
+                            <h6 class="mb-4 text-uppercase small tracking-wider opacity-50">Follow Our Journey</h6>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="social-icon-box"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="social-icon-box"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="social-icon-box"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-icon-box"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-lg overflow-hidden">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">Send Us a Message</h3>
+                            <form id="contact-form" class="needs-validation" novalidate>
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-bold">Full Name</label>
+                                        <input type="text" class="form-control" name="name" required
+                                            placeholder="Enter your name">
+                                        <div class="invalid-feedback">Please provide your name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-bold">Email Address</label>
+                                        <input type="email" class="form-control" name="email" required
+                                            placeholder="Enter your email">
+                                        <div class="invalid-feedback">A valid email is required.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small fw-bold">Reason for Inquiry</label>
+                                        <select class="form-select" name="reason" required>
+                                            <option value="">Select a reason...</option>
+                                            <option>Residential Removal Query</option>
+                                            <option>Commercial/Office Quote</option>
+                                            <option>Construction Debris Query</option>
+                                            <option>General Support</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select a reason.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small fw-bold">Your Message</label>
+                                        <textarea class="form-control" name="message" rows="5" required
+                                            placeholder="How can our team help you today?"></textarea>
+                                        <div class="invalid-feedback">Please include a message.</div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-success btn-lg w-100 py-3">Send Message <i
+                                                class="bi bi-send-fill ms-2"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="py-5 bg-light border-top">
+        <div class="container py-4">
+            <div class="row align-items-center mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h2 class="display-6 fw-bold mb-3">Visit Our Headquarters</h2>
+                    <p class="text-muted">We're located in the heart of the Sustainability District. Stop by for coffee
+                        and a chat about our eco-initiatives.</p>
+                </div>
+            </div>
+            <div class="card border-0 shadow-lg overflow-hidden" style="height: 450px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91477033578!2d-74.11976373946234!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1743270000000!5m2!1sen!2sus"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="h3 mb-3 text-white">EcoJunk</div>
+                    <p>The leading eco-friendly junk removal and hauling service in the tri-state area. We're committed
+                        to a cleaner, greener future.</p>
+                    <div class="d-flex gap-3 fs-4 mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html#residential">Residential</a></li>
+                        <li><a href="services.html#commercial">Commercial</a></li>
+                        <li><a href="services.html#construction">Construction</a></li>
+                        <li><a href="services.html#recycling">Recycling</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-4">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="eco-commitment.html">Sustainability</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p class="small">Get eco-tips and exclusive discounts.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-success" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="text-center small text-muted">
+                &copy; 2026 EcoJunk Hauling Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a
+                    href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

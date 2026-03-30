@@ -1,0 +1,376 @@
+/* 
+   Eco-Friendly Junk Removal & Hauling Service 
+   Design System & Global Styles
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary-green: #2E7D32;
+    --secondary-grey: #263238;
+    --accent-light: #81C784;
+    --white: #FFFFFF;
+    --bg-light: #F9FAFB;
+    --bg-dark: #121212;
+    --card-dark: #1E1E1E;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing & Transitions */
+    --transition: all 0.3s ease;
+    --border-radius: 12px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--secondary-grey);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* Custom Bootstrap Overrides */
+.btn-success {
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-success:hover {
+    background-color: #1B5E20 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.btn-outline-success {
+    color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-green) !important;
+    color: var(--white) !important;
+}
+
+/* Header & Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-green) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--secondary-grey) !important;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--primary-green) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f1f8e9 0%, #ffffff 100%);
+}
+
+.hero-booking {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/book_pickup_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-contact {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/contact_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-pricing {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/pricing_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-eco {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/eco_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+}
+
+/* Eco Page Process Images */
+.process-img-wrapper {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.process-img-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.process-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-how-it-works {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/how_it_works_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+}
+
+.hero-services {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/services_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+}
+
+.hero-about {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/about_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+}
+
+.reclaim-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/reclaim_bg.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.impact-counter {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.impact-counter:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Pricing Transparency Icons */
+.transparency-icon-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.transparency-icon-wrapper:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.transparency-icon-wrapper img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.transparency-section-bg {
+    background: linear-gradient(rgba(45, 62, 79, 0.9), rgba(45, 62, 79, 0.9)), url('../assets/transparency_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+.transparency-section-bg h2,
+.transparency-section-bg h5 {
+    color: var(--accent-light) !important; /* Using accent-light for better contrast while keeping the green brand feel */
+}
+
+/* Social Icons */
+.social-icon-box {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon-box:hover {
+    background: white !important;
+    color: var(--primary-green) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Quick Quote Widget */
+.quote-widget {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-grey);
+    color: var(--white);
+    padding: 80px 0 40px;
+}
+
+footer a {
+    color: #cfd8dc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--accent-light);
+}
+
+/* Dark Mode Classes */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--white);
+}
+
+body.dark-mode .card, 
+body.dark-mode .navbar, 
+body.dark-mode .quote-widget {
+    background-color: var(--card-dark);
+    color: var(--white);
+}
+
+body.dark-mode .nav-link {
+    color: var(--white) !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode .form-check-label {
+    background-color: #2c2c2c;
+    border-color: #444;
+    color: white;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #333;
+    border-color: var(--primary-green);
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+body.dark-mode .form-control::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+body.dark-mode .bg-light,
+body.dark-mode .bg-light-green {
+    background-color: var(--card-dark) !important;
+}
+
+body.dark-mode .text-muted {
+    color: #aaa !important;
+}
+
+/* Custom Utilities */
+.text-primary-green { color: var(--primary-green); }
+.bg-primary-green { background-color: var(--primary-green); }
+.rounded-lg { border-radius: var(--border-radius); }
+
+/* Live Tracking Simulation Styles */
+.tracking-map {
+    height: 300px;
+    background: #e0e0e0;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.truck-marker {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 0 20px rgba(46, 125, 50, 0.5);
+    transition: all 1s linear;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | EcoJunk Hauling</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        :root { --sidebar-width: 280px; }
+        body { background-color: #f4f7f6; display: flex; min-height: 100vh; margin: 0; }
+        .sidebar { width: var(--sidebar-width); background: var(--secondary-grey); color: white; height: 100vh; position: fixed; left: 0; top: 0; z-index: 1000; transition: var(--transition); }
+        .sidebar .nav-link { color: rgba(255,255,255,0.7); padding: 15px 25px; border-radius: 0; margin: 5px 0; border-left: 4px solid transparent; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { color: white; background: rgba(255,255,255,0.05); border-left-color: var(--primary-green); }
+        .main-content { margin-left: var(--sidebar-width); flex: 1; padding: 30px; }
+        .top-bar { background: white; margin: -30px -30px 30px -30px; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .dashboard-section { display: none; }
+        .dashboard-section.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .stat-card { border: none; border-radius: 15px; background: white; transition: var(--transition); }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .impact-badge { background: #E8F5E9; color: var(--primary-green); padding: 5px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; }
+        @media (max-width: 991px) {
+            .sidebar { left: -100%; }
+            .sidebar.show { left: 0; }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar py-4 d-flex flex-column" id="sidebar">
+        <div class="px-4 mb-5">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-white">
+                <img src="assets/logo.png" alt="EcoJunk" height="35" class="me-2 filter-white">
+                <span class="fw-bold">EcoJunk</span>
+            </a>
+        </div>
+        <nav class="nav flex-column flex-grow-1">
+            <a href="#" class="nav-link active" data-section="home"><i class="bi bi-grid-1x2 me-3"></i>Dashboard Home</a>
+            <a href="#" class="nav-link" data-section="bookings"><i class="bi bi-calendar-check me-3"></i>My Bookings</a>
+            <a href="#" class="nav-link" data-section="tracking"><i class="bi bi-truck me-3"></i>Live Tracking</a>
+            <a href="#" class="nav-link" data-section="quotes"><i class="bi bi-chat-dots me-3"></i>My Quotes</a>
+            <a href="#" class="nav-link" data-section="recycling"><i class="bi bi-recycle me-3"></i>Recycling Report</a>
+            <a href="#" class="nav-link" data-section="settings"><i class="bi bi-gear me-3"></i>Settings</a>
+        </nav>
+        <div class="mt-auto px-4">
+            <a href="index.html" class="nav-link text-danger"><i class="bi bi-box-arrow-left me-3"></i>Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar bg-white">
+            <div class="d-flex align-items-center">
+                <button class="btn d-lg-none me-3" id="sidebarToggle"><i class="bi bi-list fs-4"></i></button>
+                <h4 class="mb-0 fw-bold" id="pageTitle">Dashboard Home</h4>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <div class="dropdown">
+                    <button class="btn border-0 position-relative" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">2</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+                        <li class="p-2 small">New: Truck is 20 mins away!</li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="p-2 small text-muted">Quote ID: 4421 Confirmed</li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="text-end me-3 d-none d-sm-block">
+                        <div class="fw-bold small">Alex Johnson</div>
+                        <div class="small text-muted">Basic Plan</div>
+                    </div>
+                    <img src="https://i.pravatar.cc/150?u=alex" alt="Profile" width="40" class="rounded-circle shadow-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections -->
+        
+        <!-- 1. Home Section -->
+        <section id="section-home" class="dashboard-section active">
+            <div class="row g-4 mb-5">
+                <div class="col-md-8">
+                    <div class="card p-4 bg-primary-green text-white border-0 shadow-sm h-100 overflow-hidden position-relative">
+                        <div class="position-relative z-1">
+                            <h2 class="fw-bold mb-3">Welcome, Alex!</h2>
+                            <p class="opacity-75 mb-4">Your space is looking greener already. You have one upcoming pickup scheduled for tomorrow.</p>
+                            <div class="d-flex gap-2">
+                                <a href="book-pickup.html" class="btn btn-light text-primary-green fw-bold">Book New Pickup</a>
+                                <a href="pricing.html" class="btn btn-outline-light">Get Estimate</a>
+                            </div>
+                        </div>
+                        <i class="bi bi-tree position-absolute bottom-0 end-0 display-1 opacity-10 m-3"></i>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 border-0 shadow-sm h-100 bg-white">
+                        <h6 class="text-muted text-uppercase small fw-bold mb-3">Environmental Impact</h6>
+                        <div class="display-5 fw-bold text-primary-green mb-1">128 kg</div>
+                        <p class="small text-muted mb-4">Total waste diverted from landfill</p>
+                        <div class="progress mb-2" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: 75%;"></div>
+                        </div>
+                        <span class="small opacity-75">75% Recycled / Donated</span>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold mb-4">Live Activity</h5>
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h6 class="mb-0 fw-bold">Truck Status</h6>
+                            <span class="badge bg-success rounded-pill px-3">On the way</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 mb-4">
+                            <div class="h1 text-primary-green mb-0"><i class="bi bi-truck"></i></div>
+                            <div>
+                                <h4 class="mb-0 fw-bold" id="truck-eta">15 mins</h4>
+                                <span class="small text-muted">Estimated Arrival</span>
+                            </div>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="bi bi-person-circle me-1"></i> Driver: Mikhail | ID: TRK-8821</p>
+                        <button class="btn btn-outline-success btn-sm w-100 mt-4" onclick="switchSection('tracking')">Track Live Location</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h6 class="mb-4 fw-bold">Recent Bookings</h6>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-light p-2 rounded me-3 text-primary-green"><i class="bi bi-box-seam fs-4"></i></div>
+                            <div class="flex-grow-1">
+                                <div class="fw-bold small">Junk Pickup #BK-221</div>
+                                <div class="small text-muted">Tomorrow, 10:00 AM - 12:00 PM</div>
+                            </div>
+                            <span class="small text-success fw-bold">$85.00</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-light p-2 rounded me-3"><i class="bi bi-check-circle-fill fs-4 text-muted"></i></div>
+                            <div class="flex-grow-1">
+                                <div class="fw-bold small text-muted">Office Cleanout #BK-198</div>
+                                <div class="small text-muted">Mar 22, 2026</div>
+                            </div>
+                            <span class="small text-muted fw-bold">$210.00</span>
+                        </div>
+                        <a href="#" class="btn btn-link text-primary-green small text-center w-100 mt-auto" onclick="switchSection('bookings')">View All Bookings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Bookings Section -->
+        <section id="section-bookings" class="dashboard-section">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">Booking History</h5>
+                        <button class="btn btn-success btn-sm px-4">New Pickup</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Impact</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#BK-221</td>
+                                    <td>Mar 29, 2026</td>
+                                    <td>Residential</td>
+                                    <td><span class="badge bg-success-subtle text-success">Confirmed</span></td>
+                                    <td><span class="impact-badge">-15 kg CO2</span></td>
+                                    <td>$85.00</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#BK-198</td>
+                                    <td>Mar 22, 2026</td>
+                                    <td>Commercial</td>
+                                    <td><span class="badge bg-light text-muted">Completed</span></td>
+                                    <td><span class="impact-badge">-42 kg CO2</span></td>
+                                    <td>$245.00</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Details</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Live Tracking Section -->
+        <section id="section-tracking" class="dashboard-section">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm overflow-hidden h-100">
+                        <div class="card-header bg-white py-3 border-0 d-flex justify-content-center">
+                             <span class="badge bg-success px-4 py-2" id="truck-status">In-Transit</span>
+                        </div>
+                        <!-- Simulated Map -->
+                        <div class="tracking-map bg-light position-relative" style="height: 500px;">
+                            <div class="truck-marker" style="left: 10%; top: 80%;">
+                                <i class="bi bi-truck fs-5"></i>
+                            </div>
+                            <div class="position-absolute bottom-0 start-0 m-4 p-3 bg-white rounded shadow-sm">
+                                <h6 class="mb-1 fw-bold">Your Location</h6>
+                                <p class="small text-muted mb-0">123 Maple St, Unit 4B</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h6 class="fw-bold mb-4">Service Provider</h6>
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://i.pravatar.cc/150?u=mikhail" alt="Driver" width="60" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0 fw-bold">Mikhail S.</h5>
+                                <p class="small text-muted mb-0">Professional Hauler (4.9 ★)</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-light rounded-3 mb-4">
+                            <div class="row text-center">
+                                <div class="col-6 border-end">
+                                    <div class="small text-muted">Truck ID</div>
+                                    <div class="fw-bold">ECO-882</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="small text-muted">Arrival</div>
+                                    <div class="fw-bold">~10:15 AM</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success w-100 mb-3"><i class="bi bi-telephone me-2"></i> Contact Driver</button>
+                        <button class="btn btn-outline-success w-100">Reschedule Pickup</button>
+                    </div>
+                    <div class="card border-0 shadow-sm p-4">
+                        <h6 class="fw-bold mb-3">Safety Protocols</h6>
+                        <div class="small text-muted">
+                            <i class="bi bi-shield-check text-success me-2"></i> contactless removal available<br>
+                            <i class="bi bi-shield-check text-success me-2"></i> Certified eco-disposal<br>
+                            <i class="bi bi-shield-check text-success me-2"></i> Team background checked
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Recycling Report Section -->
+        <section id="section-recycling" class="dashboard-section">
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="card p-4 border-0 shadow-sm bg-white text-center">
+                        <i class="bi bi-box-fill text-primary-green display-4 mb-3"></i>
+                        <h5 class="fw-bold">Items Diverted</h5>
+                        <p class="display-6 fw-bold">42</p>
+                        <p class="small text-muted">Total objects saved this year</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 border-0 shadow-sm bg-white text-center">
+                        <i class="bi bi-heart-fill text-danger display-4 mb-3"></i>
+                        <h5 class="fw-bold">Donation Impact</h5>
+                        <p class="display-6 fw-bold">12</p>
+                        <p class="small text-muted">Families helped with usable goods</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 border-0 shadow-sm bg-white text-center">
+                        <i class="bi bi-cloud-check-fill text-info display-4 mb-3"></i>
+                        <h5 class="fw-bold">CO2 Offset</h5>
+                        <p class="display-6 fw-bold">88 kg</p>
+                        <p class="small text-muted">Equivalent to planting 4 trees</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">Environmental Impact Breakdown</h5>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="p-4 bg-light rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 250px; height: 250px; border: 15px solid #2E7D32;">
+                                <div class="text-center">
+                                    <div class="h2 fw-bold mb-0">82%</div>
+                                    <div class="small text-muted">Recyclable</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                    <span><i class="bi bi-circle-fill text-success me-2"></i> Metal & Scrap</span>
+                                    <span class="fw-bold">45%</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                    <span><i class="bi bi-circle-fill text-primary-green me-2"></i> Paper & Cardboard</span>
+                                    <span class="fw-bold">22%</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                    <span><i class="bi bi-circle-fill text-accent-light me-2"></i> Wood & Furniture</span>
+                                    <span class="fw-bold">15%</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                    <span><i class="bi bi-circle-fill text-secondary-grey me-2"></i> Landfill / Waste</span>
+                                    <span class="fw-bold text-muted">18%</span>
+                                </li>
+                            </ul>
+                            <div class="alert alert-success mt-4 mb-0 border-0">
+                                <i class="bi bi-info-circle me-2"></i> "Your last pickup saved enough energy to power a home for 3 days!"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Settings Section (Minimal) -->
+        <section id="section-settings" class="dashboard-section">
+            <div class="card border-0 shadow-sm max-width-600">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">Profile Settings</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Full Name</label>
+                            <input type="text" class="form-control" value="Alex Johnson">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Email Address</label>
+                            <input type="email" class="form-control" value="alex.j@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold">Address Management</label>
+                            <div class="p-3 border rounded mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">Primary Residence</div>
+                                        <div class="small text-muted">123 Maple St, Unit 4B, NYC</div>
+                                    </div>
+                                    <button class="btn btn-sm btn-light">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success px-5">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Sidebar Navigation Logic
+        const navLinks = document.querySelectorAll('.sidebar .nav-link[data-section]');
+        const sections = document.querySelectorAll('.dashboard-section');
+        const pageTitle = document.getElementById('pageTitle');
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const sect = link.dataset.section;
+                switchSection(sect);
+                if(window.innerWidth < 992) sidebar.classList.remove('show');
+            });
+        });
+
+        function switchSection(id) {
+            // Update Active Link
+            navLinks.forEach(l => l.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-link[data-section="${id}"]`);
+            if(activeLink) activeLink.classList.add('active');
+
+            // Show Section
+            sections.forEach(s => s.classList.remove('active'));
+            const activeSect = document.getElementById(`section-${id}`);
+            if(activeSect) activeSect.classList.add('active');
+
+            // Update Title
+            pageTitle.textContent = activeLink ? activeLink.textContent.trim() : 'Dashboard';
+        }
+
+        // Mobile Toggle
+        if(toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>

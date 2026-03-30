@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | EcoJunk Hauling</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        body { background: #F9FAFB; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px 0; }
+        .auth-card { max-width: 500px; width: 100%; border: none; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .auth-logo { height: 60px; margin-bottom: 20px; }
+        .btn-auth { width: 100%; padding: 12px; font-weight: 600; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div class="card auth-card p-4 p-md-5 bg-white">
+            <div class="text-center mb-4">
+                <a href="index.html"><img src="assets/logo.png" alt="EcoJunk" class="auth-logo"></a>
+                <h2 class="fw-bold">Create Account</h2>
+                <p class="text-muted small">Join EcoJunk and start your sustainability journey.</p>
+            </div>
+            
+            <form action="dashboard.html">
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <label class="form-label small fw-bold">Full Name</label>
+                        <input type="text" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small fw-bold">Email Address</label>
+                        <input type="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small fw-bold">Phone Number</label>
+                        <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small fw-bold">Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small fw-bold">Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                </div>
+                
+                <div class="form-check mt-4 mb-4">
+                    <input class="form-check-input" type="checkbox" id="terms" required>
+                    <label class="form-check-label small" for="terms">I agree to the <a href="#" class="text-primary-green text-decoration-none">Terms and Conditions</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-success btn-auth mb-3">Create Account</button>
+            </form>
+            
+            <div class="text-center mt-3">
+                <p class="small text-muted mb-0">Already have an account? <a href="login.html" class="text-primary-green fw-bold text-decoration-none">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

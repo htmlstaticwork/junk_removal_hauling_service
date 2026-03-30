@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Junk Gone Fast | EcoJunk High-Conversion Landing</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        .split-hero {
+            background: linear-gradient(rgba(241, 248, 233, 0.9), rgba(255, 255, 255, 0.9)), url('assets/hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .trust-badges img {
+            max-height: 50px;
+            filter: grayscale(1);
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .trust-badges img:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .before-after-img {
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.png" alt="EcoJunk Logo" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Home</a>
+                        <ul class="dropdown-menu border-0 shadow-sm">
+                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eco-commitment.html">Eco</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><button class="btn btn-outline-success ms-lg-3" id="theme-toggle"><i
+                                class="bi bi-moon-stars"></i></button></li>
+                    <li class="nav-item"><a class="btn btn-success ms-lg-2" href="book-pickup.html">Book Now</a></li>
+                    <li class="nav-item ms-lg-3"><a class="nav-link fw-bold text-dark" href="login.html"><i
+                                class="bi bi-person-circle fs-5"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Split Hero -->
+    <section class="hero-section split-hero py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="badge bg-success mb-3 px-3 py-2 rounded-pill">#1 Rated Eco-Junk Removal</span>
+                    <h1 class="display-3 fw-bold mb-4">Clearing Your Space, <br><span class="text-primary-green">Saving
+                            the Planet.</span></h1>
+                    <p class="lead mb-5">Experience professional, same-day junk removal with a focus on recycling. We do
+                        the heavy lifting, you enjoy the clarity.</p>
+
+                    <div class="row g-3 trust-badges mb-4">
+                        <div class="col-4">
+                            <div class="p-3 border rounded text-center">
+                                <i class="bi bi-check-circle-fill text-primary-green d-block fs-3 mb-2"></i>
+                                <span class="small fw-bold">Fully Licensed</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-3 border rounded text-center">
+                                <i class="bi bi-shield-check text-primary-green d-block fs-3 mb-2"></i>
+                                <span class="small fw-bold">Insured Service</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-3 border rounded text-center">
+                                <i class="bi bi-clock-history text-primary-green d-block fs-3 mb-2"></i>
+                                <span class="small fw-bold">Same-Day Availability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 text-center">Get Instant Booking</h3>
+                            <form id="main-booking-form" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label class="form-label">Service Type</label>
+                                    <select class="form-select" required name="type">
+                                        <option value="">Select type...</option>
+                                        <option>Residential</option>
+                                        <option>Commercial</option>
+                                        <option>Construction Debris</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pickup Zip Code</label>
+                                    <input type="text" class="form-control" placeholder="e.g. 10001" required
+                                        name="zip">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="(555) 000-0000" required
+                                        name="phone">
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 py-3 fs-5">Get Your Guaranteed Price
+                                    <i class="bi bi-arrow-right"></i></button>
+                                <p class="text-center small text-muted mt-3 mb-0">No credit card required to start.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="py-4 border-bottom bg-white">
+        <div class="container text-center">
+            <span class="text-uppercase text-muted small fw-bold tracking-wider d-block mb-3">Partnered with leading
+                organizations</span>
+            <div class="row align-items-center opacity-50 g-5">
+                <div class="col-6 col-md-3 h3"><i class="bi bi-recycle me-2"></i>RecycleNow</div>
+                <div class="col-6 col-md-3 h3"><i class="bi bi-heart-fill me-2"></i>Goodwill</div>
+                <div class="col-6 col-md-3 h3"><i class="bi bi-award me-2"></i>GreenCircle</div>
+                <div class="col-6 col-md-3 h3"><i class="bi bi-shield-check me-2"></i>SafeHaul</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Showcase -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary-green">See the EcoJunk Difference</h2>
+                <p class="text-muted">Real transformations from our recent cleanouts.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-6">
+                    <div class="card overflow-hidden border-0 shadow-sm transition-hover">
+                        <div class="row g-0">
+                            <div class="col-6 position-relative">
+                                <img src="assets/how_it_works_hero.png" alt="Cluttered Garage"
+                                    class="before-after-img w-100">
+                                <span class="badge bg-dark position-absolute top-0 start-0 m-2">Before</span>
+                            </div>
+                            <div class="col-6 position-relative">
+                                <img src="assets/reclaim_bg.png" alt="Clean Garage" class="before-after-img w-100">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">After</span>
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Garage Reclaim</h5>
+                            <p class="text-muted mb-0 small">From overwhelming clutter to a clean, usable space. We
+                                handled everything from sorting to final sweep.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card overflow-hidden border-0 shadow-sm transition-hover">
+                        <div class="row g-0">
+                            <div class="col-6 position-relative">
+                                <img src="assets/service_construction.png" alt="Construction Site"
+                                    class="before-after-img w-100">
+                                <span class="badge bg-dark position-absolute top-0 start-0 m-2">Before</span>
+                            </div>
+                            <div class="col-6 position-relative">
+                                <img src="assets/service_commercial.png" alt="Clean Office"
+                                    class="before-after-img w-100">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">After</span>
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Professional Clean-out</h5>
+                            <p class="text-muted mb-0 small">Site-wide debris removal and responsible disposal, ensuring
+                                a hazard-free and ready-to-use property.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: 3-Step Eco-Process [NEW] -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our 3-Step Eco-Process</h2>
+                <p class="text-muted">Junk removal made simple, fast, and green.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="p-4">
+                        <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 shadowed"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-laptop-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold">1. Request Quote</h4>
+                        <p class="text-muted small">Enter your details and get a transparent, guaranteed estimate in
+                            minutes via our smart pricing engine.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4">
+                        <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 shadowed"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-truck-front-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold">2. Professional Pickup</h4>
+                        <p class="text-muted small">Our eco-certified crew arrives within your 2-hour window and handles
+                            all the heavy lifting and loading.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4">
+                        <div class="bg-primary-green text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 shadowed"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-recycle fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold">3. Green Disposal</h4>
+                        <p class="text-muted small">We sort every single item to ensure that over 80% of what we collect
+                            is either recycled or donated.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: What Our Customers Say [NEW] -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">What Our Customers Say</h2>
+                <p class="text-muted">Join 15,000+ happy customers across the region.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-0 shadow-sm bg-light">
+                        <div class="text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic text-muted">"Incredible service! They were on time, professional, and I
+                            love that they actually recycle. Highly recommend!"</p>
+                        <hr class="mt-auto opacity-10">
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=40&h=40"
+                                alt="John Stevens" class="rounded-circle me-3" width="40" height="40">
+                            <span class="fw-bold">John Stevens, <small class="text-muted fw-normal">New
+                                    York</small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-0 shadow-sm bg-light">
+                        <div class="text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic text-muted">"The team was so fast and respectful. I was dreading my
+                            basement cleanout, but EcoJunk made it painless."</p>
+                        <hr class="mt-auto opacity-10">
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=40&h=40"
+                                alt="Maria Alvares" class="rounded-circle me-3" width="40" height="40">
+                            <span class="fw-bold">Maria Alvares, <small class="text-muted fw-normal">Jersey
+                                    City</small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-0 shadow-sm bg-light">
+                        <div class="text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic text-muted">"Fair pricing and professional crew. I’ll definitely use them
+                            again for any future removals."</p>
+                        <hr class="mt-auto opacity-10">
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=40&h=40"
+                                alt="Robert Black" class="rounded-circle me-3" width="40" height="40">
+                            <span class="fw-bold">Robert Black, <small
+                                    class="text-muted fw-normal">Philadelphia</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Environmental Impact Tracker [NEW] -->
+    <section class="py-5 bg-primary-green text-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-white">Our Real-Time Impact</h2>
+                <p class="opacity-75">Every pickup helps contribute to a greener planet.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="impact-counter h-100">
+                        <div class="display-4 fw-bold mb-2">12,500</div>
+                        <p class="small text-uppercase opacity-75">Tons Landfill Diverted</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="impact-counter h-100">
+                        <div class="display-4 fw-bold mb-2">5,200</div>
+                        <p class="small text-uppercase opacity-75">Trees Planted</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="impact-counter h-100">
+                        <div class="display-4 fw-bold mb-2">85%</div>
+                        <p class="small text-uppercase opacity-75">Avg. Recycling Rate</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="impact-counter h-100">
+                        <div class="display-4 fw-bold mb-2">250+</div>
+                        <p class="small text-uppercase opacity-75">Charity Partners</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Why Choose EcoJunk? [NEW] -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-5 fw-bold mb-4">Why Choose <span class="text-primary-green">EcoJunk?</span></h2>
+                    <p class="lead text-muted mb-4">We've refined every aspect of junk removal to make it as stress-free
+                        and efficient as possible for you.</p>
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Eco-Certified & Fully Insured</h6>
+                                    <p class="small text-muted mb-0">Total protection for your home and our crew. We
+                                        prioritize safety and planet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Same-Day Service</h6>
+                                    <p class="small text-muted mb-0">Book now and get it gone today.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Guaranteed Price</h6>
+                                    <p class="small text-muted mb-0">Up-front quotes with no hidden fees.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Live Tracking</h6>
+                                    <p class="small text-muted mb-0">See exactly when our truck is arriving.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <img src="assets/services_hero.png" alt="EcoJunk Professional Service"
+                        class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="reclaim-section text-white text-center">
+        <div class="container py-4 text-white">
+            <h2 class="display-3 fw-bold mb-4 text-white">Ready to Reclaim Your Space?</h2>
+            <p class="lead mb-5 fs-4 text-white opacity-90">Join 15,000+ happy customers who chose the eco-friendly way.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="book-pickup.html" class="btn btn-success btn-lg px-5 py-3 fs-5">Book Your Pickup Now</a>
+                <a href="tel:5551234567" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">Call (555) 123-4567</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="h3 mb-3 text-white">EcoJunk</div>
+                    <p>The leading eco-friendly junk removal and hauling service in the tri-state area. We're committed
+                        to a cleaner, greener future.</p>
+                    <div class="d-flex gap-3 fs-4 mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Residential</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Construction</a></li>
+                        <li><a href="#">Recycling</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-4">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="eco-commitment.html">Sustainability</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p class="small">Get eco-tips and exclusive discounts.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-success" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="text-center small text-muted">
+                &copy; 2026 EcoJunk Hauling Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a
+                    href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

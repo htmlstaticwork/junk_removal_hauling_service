@@ -27,23 +27,23 @@ function initQuoteCalculator() {
     if (volumeSlider) {
         volumeSlider.addEventListener('input', updatePrice);
     }
-    
+
     itemCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updatePrice);
     });
 
     function updatePrice() {
         let basePrice = 50; // Minimum service fee
-        
+
         // Volume pricing: $100 per 1/4 truck load
         if (volumeSlider) {
             const volume = parseInt(volumeSlider.value);
             basePrice += (volume * 100);
-            document.getElementById('volume-display').textContent = 
-                volume === 0 ? 'Minimum Load' : 
-                volume === 1 ? '1/4 Truck' : 
-                volume === 2 ? '1/2 Truck' : 
-                volume === 3 ? '3/4 Truck' : 'Full Truck';
+            document.getElementById('volume-display').textContent =
+                volume === 0 ? 'Minimum Load' :
+                    volume === 1 ? '1/4 Truck' :
+                        volume === 2 ? '1/2 Truck' :
+                            volume === 3 ? '3/4 Truck' : 'Full Truck';
         }
 
         // Add-ons per item type
@@ -90,10 +90,10 @@ function initTrackingSimulation() {
         const point = path[progress];
         truckMarker.style.left = point.left;
         truckMarker.style.top = point.top;
-        
+
         if (statusDisplay) statusDisplay.textContent = 'On the way';
         if (etaDisplay) etaDisplay.textContent = (25 - (progress * 5)) + ' mins';
-        
+
         progress++;
     }, 3000); // Move every 3 seconds for simulation
 }
@@ -105,7 +105,7 @@ function initBookingForm() {
 
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Bootstrap standard validation
         if (!bookingForm.checkValidity()) {
             e.stopPropagation();
@@ -164,30 +164,51 @@ function initContactForm() {
     });
 }
 
-// --- Theme Toggle ---
+// --- Theme and Layout Toggles ---
 function initThemeToggle() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (!toggleBtn) return;
+    const desktopThemeBtn = document.getElementById('theme-toggle');
+    const mobileThemeBtn = document.getElementById('theme-toggle-mob');
 
-    // Check saved preference
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
+    function updateThemeUI(isDark) {
+        // Update Desktop Sidebar Icon
+        if (desktopThemeBtn) {
+            const icon = desktopThemeBtn.querySelector('i');
+            if (icon) {
+                icon.className = isDark ? 'bi bi-sun fs-5' : 'bi bi-moon-stars fs-5';
+            }
+        }
+        // Update Mobile Dropdown Button
+        if (mobileThemeBtn) {
+            mobileThemeBtn.innerHTML = isDark ?
+                '<i class="bi bi-sun me-2"></i>Light Mode' :
+                '<i class="bi bi-moon-stars me-2"></i>Dark Mode';
+        }
     }
 
-    toggleBtn.addEventListener('click', (e) => {
-        if(e) e.preventDefault();
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+    // Initial state
+    const isDark = localStorage.getItem('theme') === 'dark' || document.body.classList.contains('dark-mode');
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+    updateThemeUI(isDark);
 
+    function toggleTheme(e) {
+        if (e) e.preventDefault();
+        document.body.classList.toggle('dark-mode');
+        const nowDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+        updateThemeUI(nowDark);
+    }
+
+    desktopThemeBtn?.addEventListener('click', toggleTheme);
+    mobileThemeBtn?.addEventListener('click', toggleTheme);
     initZipChecker();
 }
 
 function initZipChecker() {
     const zipBtn = document.querySelector('.input-group button.btn-light');
     const zipInput = document.querySelector('.input-group input[placeholder="Enter Zip Code"]');
-    
+
     if (!zipBtn || !zipInput) return;
 
     zipBtn.addEventListener('click', () => {
@@ -204,18 +225,18 @@ function initZipChecker() {
 function initNavbarActiveState() {
     const currentPath = window.location.pathname;
     const filename = currentPath.split('/').pop() || 'index.html';
-    
+
     // Reset all active classes
     document.querySelectorAll('.nav-link, .dropdown-item').forEach(el => el.classList.remove('active'));
 
     const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        
+
         // Exact match or Home 1 match
         if (href === filename || (filename === 'index.html' && href === '#')) {
             link.classList.add('active');
-            
+
             // If it's a dropdown item, highlight its parent toggle
             if (link.classList.contains('dropdown-item')) {
                 const parentDropdown = link.closest('.dropdown');
@@ -231,22 +252,31 @@ function initNavbarActiveState() {
 }
 
 function initNavIcons() {
-    const rtlBtn = document.getElementById('rtl-toggle');
-    if (rtlBtn) {
-        rtlBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const html = document.documentElement;
-            const isRtl = html.getAttribute('dir') === 'rtl';
-            html.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-            rtlBtn.querySelector('i').classList.toggle('bi-translate');
-            rtlBtn.querySelector('i').classList.toggle('bi-arrow-left-right');
-        });
+    const desktopRtlBtn = document.getElementById('rtl-toggle');
+    const mobileRtlBtn = document.getElementById('rtl-toggle-mob');
+
+    function toggleRtl(e) {
+        if (e) e.preventDefault();
+        const html = document.documentElement;
+        const isRtl = html.getAttribute('dir') === 'rtl';
+        html.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
+        
+        // Sync Desktop Icon if exists
+        if (desktopRtlBtn) {
+            const icon = desktopRtlBtn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('bi-translate');
+                icon.classList.toggle('bi-arrow-left-right');
+            }
+        }
     }
+
+    desktopRtlBtn?.addEventListener('click', toggleRtl);
+    mobileRtlBtn?.addEventListener('click', toggleRtl);
 
     const dashboardBtn = document.getElementById('dashboard-link');
     if (dashboardBtn) {
         dashboardBtn.addEventListener('click', (e) => {
-            // Simulation: Normally would just follow the link
             console.log('Navigating to Customer Dashboard...');
         });
     }
@@ -256,20 +286,32 @@ function initNavIcons() {
 function initDashboardToggle() {
     const toggleBtn = document.getElementById('sidebarToggle');
     const sidebar = document.getElementById('sidebar');
-    
+    const overlay = document.getElementById('sidebarOverlay');
+
     if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
+        function toggleSidebar(e) {
+            if (e) e.stopPropagation();
             sidebar.classList.toggle('show');
-        });
+            if (overlay) overlay.classList.toggle('show');
+            toggleBtn.classList.toggle('collapsed');
+        }
+
+        toggleBtn.addEventListener('click', toggleSidebar);
+
+        if (overlay) {
+            overlay.addEventListener('click', toggleSidebar);
+        }
 
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
-            if (window.innerWidth < 992 && 
+            if (window.innerWidth < 992 &&
                 sidebar.classList.contains('show') &&
-                !sidebar.contains(e.target) && 
-                !toggleBtn.contains(e.target)) {
+                !sidebar.contains(e.target) &&
+                !toggleBtn.contains(e.target) &&
+                (!overlay || !overlay.contains(e.target))) {
                 sidebar.classList.remove('show');
+                if (overlay) overlay.classList.remove('show');
+                toggleBtn.classList.add('collapsed');
             }
         });
     }

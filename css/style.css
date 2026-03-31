@@ -676,6 +676,8 @@ body.dark-mode .text-muted {
         border-radius: 0 0 12px 12px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         z-index: 1050;
+        max-height: calc(100vh - 100%);
+        overflow-y: auto;
     }
 
     .navbar-nav .nav-item {

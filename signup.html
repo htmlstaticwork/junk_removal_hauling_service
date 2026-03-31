@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +11,126 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <style>
-        body { background: #F9FAFB; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .auth-card { max-width: 500px; width: 100%; border: none; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        .btn-auth { width: 100%; padding: 12px; font-weight: 600; font-size: 1.1rem; border-radius: 12px; }
-        .password-toggle { cursor: pointer; position: absolute; right: 15px; top: 12px; z-index: 10; }
-        .auth-toggles { position: fixed; top: 20px; right: 20px; z-index: 1100; display: flex; gap: 10px; }
-        @media (max-width: 576px) {
-            .auth-toggles { position: relative; top: 0; right: 0; width: 100%; justify-content: flex-end; padding-bottom: 10px; }
-            body { padding-top: 40px; }
+        body {
+            background: #F9FAFB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
-        body.dark-mode .auth-toggles .btn-white { background: var(--card-dark); color: white; border-color: rgba(255,255,255,0.1); }
-        .social-btn { border: 1px solid #e0e0e0; border-radius: 12px; padding: 10px; font-weight: 500; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--secondary-grey); text-decoration: none; width: 100%; }
-        .social-btn:hover { background: #f8f9fa; border-color: var(--primary-green); color: var(--primary-green); }
-        .divider { display: flex; align-items: center; text-align: center; margin: 20px 0; color: #999; font-size: 0.9rem; }
-        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #eee; }
-        .divider:not(:empty)::before { margin-right: .5em; }
-        .divider:not(:empty)::after { margin-left: .5em; }
+
+        .auth-card {
+            max-width: 500px;
+            width: 100%;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 12px;
+        }
+
+        .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            z-index: 10;
+        }
+
+        .auth-toggles {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+            display: flex;
+            gap: 10px;
+        }
+
+        @media (max-width: 576px) {
+            .auth-toggles {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 100%;
+                justify-content: flex-end;
+                padding-bottom: 10px;
+            }
+
+            body {
+                padding-top: 40px;
+            }
+        }
+
+        body.dark-mode .auth-toggles .btn-white {
+            background: var(--card-dark);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-btn {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 10px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--secondary-grey);
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .social-btn:hover {
+            background: #f8f9fa;
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #eee;
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: .5em;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: .5em;
+        }
     </style>
 </head>
+
 <body class="bg-light">
     <div class="container d-flex flex-column align-items-center justify-content-center">
         <!-- Floating Toggles moved outside -->
         <!-- Floating Toggles moved to extreme right corner -->
         <div class="auth-toggles">
-            <button class="btn btn-white shadow-sm rounded-circle" id="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-stars"></i></button>
-            <button class="btn btn-white shadow-sm rounded-circle" id="rtl-toggle" title="Toggle RTL"><i class="bi bi-translate"></i></button>
+            <button class="btn btn-white shadow-sm rounded-circle" id="theme-toggle" title="Toggle Theme"><i
+                    class="bi bi-moon-stars"></i></button>
+            <button class="btn btn-white shadow-sm rounded-circle" id="rtl-toggle" title="Toggle RTL"><i
+                    class="bi bi-translate"></i></button>
         </div>
 
         <div class="card auth-card p-4 p-md-5 bg-white">
@@ -43,28 +139,29 @@
                 <h2 class="fw-bold">Create Account</h2>
                 <p class="text-muted small">Join EcoJunk and start your sustainability journey.</p>
             </div>
-            
+
             <form action="dashboard.html" class="needs-validation" novalidate id="signupForm">
                 <div class="row g-3">
                     <div class="col-12">
                         <label class="form-label small fw-bold">Full Name</label>
-                        <input type="text" class="form-control" placeholder="John Doe" required>
+                        <input type="text" class="form-control" placeholder="Enter Full Name" required>
                         <div class="invalid-feedback">Full name is required.</div>
                     </div>
                     <div class="col-12">
                         <label class="form-label small fw-bold">Email Address</label>
-                        <input type="email" class="form-control" placeholder="name@example.com" required>
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
                         <div class="invalid-feedback">Please enter a valid email.</div>
                     </div>
                     <div class="col-12">
                         <label class="form-label small fw-bold">Phone Number</label>
-                        <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
+                        <input type="tel" class="form-control" placeholder="Enter your phone number" required>
                         <div class="invalid-feedback">Phone number is required.</div>
                     </div>
                     <div class="col-12">
                         <label class="form-label small fw-bold">Password</label>
                         <div class="position-relative">
-                            <input type="password" class="form-control password-field" placeholder="••••••••" required minlength="6">
+                            <input type="password" class="form-control password-field" placeholder="Enter your password"
+                                required minlength="6">
                             <i class="bi bi-eye password-toggle text-muted toggle-password"></i>
                             <div class="invalid-feedback">Password must be at least 6 characters.</div>
                         </div>
@@ -72,24 +169,26 @@
                     <div class="col-12">
                         <label class="form-label small fw-bold">Confirm Password</label>
                         <div class="position-relative">
-                            <input type="password" class="form-control password-field" placeholder="••••••••" required minlength="6">
+                            <input type="password" class="form-control password-field"
+                                placeholder="Confirm your password" required minlength="6">
                             <i class="bi bi-eye password-toggle text-muted toggle-password"></i>
                             <div class="invalid-feedback">Please confirm your password.</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-check mt-4 mb-4">
                     <input class="form-check-input" type="checkbox" id="terms" required>
-                    <label class="form-check-label small" for="terms">I agree to the <a href="#" class="text-primary-green text-decoration-none">Terms and Conditions</a></label>
+                    <label class="form-check-label small" for="terms">I agree to the <a href="#"
+                            class="text-primary-green text-decoration-none">Terms and Conditions</a></label>
                     <div class="invalid-feedback">You must agree before submitting.</div>
                 </div>
-                
+
                 <button type="submit" class="btn btn-success btn-auth mb-3">Create Account</button>
             </form>
 
             <div class="divider">Or sign up with</div>
-            
+
             <div class="row g-2">
                 <div class="col-6">
                     <a href="#" class="social-btn"><i class="bi bi-google text-danger"></i> Google</a>
@@ -98,9 +197,10 @@
                     <a href="#" class="social-btn"><i class="bi bi-facebook text-primary"></i> Facebook</a>
                 </div>
             </div>
-            
+
             <div class="text-center mt-3">
-                <p class="small text-muted mb-0">Already have an account? <a href="login.html" class="text-primary-green fw-bold text-decoration-none">Log In</a></p>
+                <p class="small text-muted mb-0">Already have an account? <a href="login.html"
+                        class="text-primary-green fw-bold text-decoration-none">Log In</a></p>
             </div>
         </div>
     </div>
@@ -108,7 +208,7 @@
     <script>
         // Password Toggles
         document.querySelectorAll('.toggle-password').forEach(toggle => {
-            toggle.addEventListener('click', function() {
+            toggle.addEventListener('click', function () {
                 const input = this.previousElementSibling;
                 const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
                 input.setAttribute('type', type);
@@ -134,4 +234,5 @@
     </script>
 
 </body>
+
 </html>

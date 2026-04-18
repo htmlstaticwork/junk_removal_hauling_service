@@ -265,8 +265,7 @@ function initNavIcons() {
         if (desktopRtlBtn) {
             const icon = desktopRtlBtn.querySelector('i');
             if (icon) {
-                icon.classList.toggle('bi-translate');
-                icon.classList.toggle('bi-arrow-left-right');
+                // Keep the icon static
             }
         }
     }
